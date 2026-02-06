@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import lfbg from "../../lfbg1.png";
 
 const DEFAULT_LYRICS =
   "Every whispered line becomes a field of light. The chorus blooms, the silence fades, and the story stays.";
@@ -197,13 +198,22 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] text-[#1A1A1A]">
-      <div className="mx-auto max-w-6xl px-6 py-8">
+    <div className="relative min-h-screen overflow-hidden bg-[#FAFAFA] text-[#1A1A1A]">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-50"
+        style={{
+          backgroundImage: `url(${lfbg.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        aria-hidden="true"
+      />
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-8">
         <header className="mb-8 flex flex-col items-center gap-3 text-center">
           <span className="text-xs uppercase tracking-[0.35em] text-[#1A1A1A]/60">
             Lyric to Image Studio
           </span>
-          <h1 className="font-[var(--font-instrument-serif)] text-3xl md:text-4xl">
+          <h1 className="font-serif text-3xl md:text-4xl">
             Compose print-ready artwork from the lines you love.
           </h1>
           <p className="max-w-2xl text-base text-[#1A1A1A]/70">
